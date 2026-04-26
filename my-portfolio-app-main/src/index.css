@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/syne/500.css";
+@import "@fontsource/syne/600.css";
+@import "@fontsource/syne/700.css";
+
+/* ------------------ THEME ------------------ */
+
+@theme {
+   --font-body: "Inter", sans-serif;
+  --font-heading: "Syne", sans-serif;
+
+ --color-gradient: linear-gradient(
+  90deg,
+  #000000 0%,
+  #1a1a1a 25%,
+  #333333 50%,
+  #1a1a1a 75%,
+  #000000 100%
+)};
+
+:root {
+  --grad-start: var(--color-gradient);
+  --grad-end: var(--color-gradient);
+}
+
+
+/* ------------------ BASE ------------------ */
+@layer base {
+  body {
+    @apply bg-black text-white font-body text-xl overflow-x-hidden;
+  }
+
+  section {
+    @apply relative;
+  }
+}
+
+/* ------------------ COMPONENTS ------------------ */
+@layer components {
+  .main-container {
+    @apply max-w-[1600px] w-full mx-auto px-4 lg:px-12;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+
+  .btn {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background:
+      linear-gradient(#000, #000) padding-box,
+      var(--color-gradient) border-box;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background:
+      var(--color-gradient) padding-box,
+      var(--color-gradient) border-box;
+    color: white;
+  }
+
+  .btn-light {
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      var(--color-gradient) border-box;
+    color: black;
+  }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* ------------------ ANIMATIONS ------------------ */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 18s linear infinite reverse;
+}
+
+/* rotating star */
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.marquee-star1 {
+  animation: rotate360 10s linear infinite;
+}
+
+.marquee-star2 {
+  animation: rotate360 10s linear infinite reverse;
+}
+
+
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 1023px) {
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
