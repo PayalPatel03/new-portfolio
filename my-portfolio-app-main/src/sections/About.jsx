@@ -14,7 +14,7 @@ const About = () => {
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      // 🖼️ Image animation
+      
       gsap.fromTo(
         ".about-img",
         { x: -100, opacity: 0, scale: 0.8 },
@@ -32,7 +32,7 @@ const About = () => {
         }
       );
 
-      // 📝 Heading animation
+    
       gsap.fromTo(
         ".about-heading",
         { y: 50, opacity: 0 },
@@ -49,7 +49,7 @@ const About = () => {
         }
       );
 
-      // 📄 Paragraph animation (line stagger)
+      // Paragraph animation (line stagger)
       const aboutText = new SplitType(".about-text", { types: "lines" });
 
       aboutText.lines.forEach((line) => {
@@ -77,7 +77,7 @@ const About = () => {
         }
       );
 
-      // 🎯 Button animation
+      //  Button animation
       gsap.fromTo(
         ".resume-btn",
         { y: 30, opacity: 0 },
